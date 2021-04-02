@@ -1,0 +1,17 @@
+{
+  "name": "sports-meeting-be",
+  "version": "1.0.0",
+  "description": "毕设项目服务端",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "毕设"
+  ],
+  "author": "xiajy",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.13.1"
+  }
+}
