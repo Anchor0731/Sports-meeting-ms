@@ -33,21 +33,30 @@
           </a-tab-pane>
           <a-tab-pane key="2" tab="注册">
             <div class="item">
-              <a-input placeholder="账户" >
+              <a-input
+              placeholder="账户"
+              v-model:value="regForm.account"
+              >
                 <template #prefix>
                   <UserOutlined />
                 </template>
               </a-input>
             </div>
             <div class="item">
-              <a-input placeholder="密码" >
+              <a-input
+              placeholder="密码"
+              v-model:value="regForm.password"
+              >
                 <template #prefix>
                   <UnlockOutlined />
                 </template>
               </a-input>
             </div>
             <div class="item">
-              <a-button type="primary">
+              <a-button
+              type="primary"
+              @click="register"
+              >
                 注册
               </a-button>
             </div>
@@ -59,15 +68,30 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { defineComponent, reactive, ref } from "vue";
 import { UserOutlined, UnlockOutlined } from "@ant-design/icons-vue";
+import { auth } from "@/service";
 
 export default defineComponent({
   components: {
     UserOutlined,
     UnlockOutlined
   },
-  setup() {}
+  setup() {
+    const regForm = reactive({
+      account: '',
+      password: ''
+    });
+
+    const register = () => {
+      auth.register(regForm.account, regForm.password);
+    }
+
+    return {
+      regForm,
+      register
+    }
+  }
 });
 </script>
 
